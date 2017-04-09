@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function sendMessage(){
+    $.post("/messages", {message: {content: $("#message_content").val(), message_type: "yoda"}},
+        function (data) {
+            $("#message_content").val('');
+            $("#content").append("<br />");
+        }
+    );
+}
+
+$(document).ready(function () {
+    $("#send_button").click(function () {
+        sendMessage();
+    });
+
+    $("#message_content").keyup(function(e){
+        if(e.keyCode == 13){
+            sendMessage();
+        }
+    });
+});
