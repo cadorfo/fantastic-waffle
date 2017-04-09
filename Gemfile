@@ -29,8 +29,13 @@ gem 'omniauth-google-oauth2'
 #To load sensitive information that varies with the environment
 gem 'dotenv-rails'
 
+gem 'rest-client'
+
 group :development, :test do
+  gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
+  gem 'vcr'
+  gem 'fakeweb'
 end
 
 # Use jquery as the JavaScript library

@@ -11,6 +11,7 @@
 /tmp/
 /.idea/
 /log/
+.byebug_history
 
 # Used by dotenv library to load environment variables.
 # .env
