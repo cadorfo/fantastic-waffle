@@ -16,12 +16,8 @@
 //= require_tree .
 
 function sendMessage(){
-    $.post("/messages", {message: {content: $("#message_content").val(), message_type: "binary"}},
-        function (data) {
-            $("#message_content").val('');
-            $("#content").append("<br />");
-        }
-    );
+    App.room.send_message({message: {content: $("#message_content").val(), message_type: "binary"}});
+    $("#message_content").val('');
 }
 
 $(document).ready(function () {

@@ -1,17 +1,31 @@
-Olá <%= current_user.name %>
+<aside class="mdl-cell mdl-cell--3-col">
+  Olá <%= current_user.name %>
 
-<ul class="mdc-list mdc-list--avatar-list">
-  <li class="mdc-list-item">
-    <img class="mdc-list-item__start-detail"
-         src="<%=current_user.image %>"
-         width="56" height="56" alt="Panda">
-    Panda
-  </li>
-</ul>
-<ul id="conversation" class="demo-list-item mdl-list">
+  <div class="demo-list-action mdl-list">
+    <%= render @users %>
+  </div>
 
-</ul>
+</aside>
 
-<%= text_area_tag(:message_content) %>
 
-<%= button_tag("Enviar", id:"send_button" , type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") %>
+<div class="mdl-cell mdl-cell--9-col">
+  <button id="menu-speed" class="mdl-button mdl-js-button ">
+    Current type: Yoda
+  </button>
+  <ul class="mdl-menu mdl-js-menu" for="menu-speed">
+    <li class="mdl-menu__item">Yoda</li>
+    <li class="mdl-menu__item" disabled>Binary</li>
+    <li class="mdl-menu__item">Valley Girl</li>
+  </ul>
+  arqui
+
+
+  <ul id="conversation" class="demo-list-item mdl-list">
+
+  </ul>
+
+  <%= text_area_tag(:message_content, nil, class: 'mdl-textfield__input') %>
+
+  <%= button_tag("Enviar", id: "send_button", type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") %>
+
+</div>
