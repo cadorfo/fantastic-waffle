@@ -30,12 +30,15 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
 gem 'rest-client'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
   gem 'vcr'
   gem 'fakeweb'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Use jquery as the JavaScript library

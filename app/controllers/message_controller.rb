@@ -4,10 +4,13 @@ class MessageController < ApplicationController
 
   respond_to :json
   def create
-    if Message.create(permited_params)
+    message = Message.create(permited_params.merge({user: current_user}))
+    if message.persisted?
+      message.tranlate_content
+
       render json: { status: true}
     else
-      render json: { status: false}
+      render json: { status: false, errors: message.errors}
     end
   end
 
