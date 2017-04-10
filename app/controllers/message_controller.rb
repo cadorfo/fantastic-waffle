@@ -6,7 +6,7 @@ class MessageController < ApplicationController
   def create
     message = Message.create(permited_params.merge({user: current_user}))
     if message.persisted?
-      message.tranlate_content
+      message.translate_content!
 
       render json: { status: true}
     else

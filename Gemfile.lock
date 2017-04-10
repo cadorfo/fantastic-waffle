@@ -186,7 +186,7 @@ GEM
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
-    rspec-rails (3.5.2)
+    rspec-rails (3.5.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -227,7 +227,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -250,7 +250,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.1)
   dialog-polyfill-rails
   dotenv-rails
   enumerate_it
@@ -267,7 +267,7 @@ DEPENDENCIES
   rails (~> 5.0.2)
   rest-client
   rspec
-  rspec-rails (~> 3.5)
+  rspec-rails (= 3.5)
   sass-rails (~> 5.0)
   sidekiq
   spring

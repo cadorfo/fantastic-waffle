@@ -9,15 +9,14 @@ class TranslateJob < ApplicationJob
     ChatChannel.broadcast_to("chat_ChatRoom", {
       update_type: "message",
       message: message,
-      content: render_new_user(message),
+      content: TranslateJob.render_new_message(message),
       user: message.user,
       type: message.message_type
     })
   end
 
-  private
 
-  def render_new_user(message)
+  def self.render_new_message(message)
     ApplicationController.renderer.render(partial: 'messages/message', locals: {message: message})
   end
 end

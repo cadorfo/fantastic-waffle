@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 
-gem 'devise'
+gem 'devise', '~> 4.1'
 
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
@@ -34,7 +34,7 @@ gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '3.5'
   gem 'vcr'
   gem 'fakeweb'
   gem 'factory_girl_rails'

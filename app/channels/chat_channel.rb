@@ -17,7 +17,7 @@ class ChatChannel < ApplicationCable::Channel
 
   def send_message(data)
     message =Message.create(data["message"].merge({user: current_user}))
-    message.tranlate_content!
+    message.translate_content!
   end
 
   private

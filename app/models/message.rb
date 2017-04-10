@@ -7,7 +7,7 @@ class Message < ApplicationRecord
     self.order(updated_at: :desc).take(10)
   end
 
-  def tranlate_content!
+  def translate_content!
     TranslateJob.perform_later(self.id)
   end
 end
