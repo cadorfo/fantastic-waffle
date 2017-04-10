@@ -1,0 +1,22 @@
+<li class='mdl-list__item mdl-list__item--three-line'>
+  <span class='mdl-list__item-primary-content'>
+      <% if !message.user.image %>
+    <i class='material-icons mdl-list__item-avatar'>person</i>
+  <% else %>
+    <div class='section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone'>
+      <div class='section__circle-container__circle  section__circle--big'>
+        <img class='section__circle-container__circle  section__circle--big mdl-list__item-avatar' src='<%= message.user.image %>'/>
+      </div>
+    </div>
+    <% end %>
+    <span><%= message.user.name %> - <%= message.created_at %></span>
+  <span class='mdl-list__item-text-body'>
+     <%= message.translated_content %>
+  </span>
+        </span>
+  <span class='mdl-list__item-secondary-content'>
+  <a class='mdl-list__item-secondary-action' href='#'>
+    <img class="mdl-list__item-avatar" src="<%= image_path("#{message.message_type}") %>" />
+  </a>
+  </span>
+</li>

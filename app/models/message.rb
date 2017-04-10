@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   validates :content, presence: false
 
-  def tranlate_content
+  def tranlate_content!
     TranslateJob.perform_later(self.id)
   end
 end

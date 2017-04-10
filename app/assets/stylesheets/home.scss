@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-color: #999999;
+}
+
 #maincontent{
   margin: 0px;
+}
+
+#conversation {
+  height: 70%;
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#user_list {
+  height: 100%;
+  margin-right: 5px;
 }

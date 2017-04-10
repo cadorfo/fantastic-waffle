@@ -1,7 +1,7 @@
 <aside class="mdl-cell mdl-cell--3-col">
   Olá <%= current_user.name %>
 
-  <div class="demo-list-action mdl-list">
+  <div id="user_list" class="demo-list-action mdl-list docs-text-styling mdl-shadow--4dp">
     <%= render @users %>
   </div>
 
@@ -9,18 +9,16 @@
 
 
 <div class="mdl-cell mdl-cell--9-col">
-  <button id="menu-speed" class="mdl-button mdl-js-button ">
+  <button id="menu-dialect" value="" class="mdl-button mdl-js-button ">
     Current type: Yoda
   </button>
-  <ul class="mdl-menu mdl-js-menu" for="menu-speed">
-    <li class="mdl-menu__item">Yoda</li>
-    <li class="mdl-menu__item" disabled>Binary</li>
-    <li class="mdl-menu__item">Valley Girl</li>
+  <ul class="mdl-menu mdl-js-menu" for="menu-dialect">
+    <% @dialects.each do |dialect, value| %>
+      <li class="mdl-menu__item" value="<%=value%>"><%= dialect %></li>
+    <% end %>
   </ul>
-  arqui
 
-
-  <ul id="conversation" class="demo-list-item mdl-list">
+  <ul id="conversation" class="demo-list-item mdl-list" >
 
   </ul>
 

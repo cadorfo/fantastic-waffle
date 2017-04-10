@@ -16,7 +16,7 @@
 //= require_tree .
 
 function sendMessage(){
-    App.room.send_message({message: {content: $("#message_content").val(), message_type: "binary"}});
+    App.room.send_message({message: {content: $("#message_content").val(), message_type: $("#menu-dialect").attr("value")}});
     $("#message_content").val('');
 }
 
@@ -30,4 +30,11 @@ $(document).ready(function () {
             sendMessage();
         }
     });
+    
+    $(".mdl-menu__item").click(function (e) {
+        var dialectValue = $(this).attr("value");
+        var dialectText = $(this).text()
+        $("#menu-dialect").attr("value",dialectValue);
+        $("#menu-dialect").text("Current dialect: " +dialectText);
+    })
 });
