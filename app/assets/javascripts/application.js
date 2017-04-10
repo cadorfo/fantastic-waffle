@@ -17,8 +17,10 @@
 //= require_tree .
 
 function sendMessage(){
-    App.room.send_message({message: {content: $("#message_content").val(), message_type: $("#menu-dialect").attr("value")}});
-    $("#message_content").val('');
+    if($("#message_content").val().trim().length !== 0){
+        App.room.send_message({message: {content: $("#message_content").val(), message_type: $("#menu-dialect").attr("value")}});
+        $("#message_content").val('');
+    }
 
 }
 

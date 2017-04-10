@@ -35,4 +35,4 @@ bundle exec sidekiq
 ```
 
 
-Preferably login app with you Google Identity
+Preferably login app with your Google Identity

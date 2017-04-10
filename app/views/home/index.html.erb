@@ -11,24 +11,36 @@
   </button>
   <ul class="mdl-menu mdl-js-menu" for="menu-dialect">
     <% @dialects.each do |dialect, value| %>
-      <li class="mdl-menu__item" value="<%=value%>"><%= dialect %></li>
+        <li class="mdl-menu__item" value="<%= value %>"><%= dialect %></li>
     <% end %>
   </ul>
 
-  <ul id="conversation" class="demo-list-item mdl-list" >
+  <button class="mdl-button mdl-js-button ">
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </button>
+
+  <ul id="conversation" class="demo-list-item mdl-list">
     <%= render @messages %>
   </ul>
 
-  <div class="mdl-textfield mdl-js-textfield">
-    <%= text_area_tag(:message_content, nil, class: 'mdl-textfield__input') %>
-    <label class="mdl-textfield__label" for="sample5">Put you message here...</label>
+  <div id="button_message_content" class="mdl-grid">
+
+    <div class="mdl-cell mdl-cell--9-col">
+
+
+        <%= text_area_tag(:message_content, nil, class: 'mdl-textfield__input') %>
+        <label class="mdl-textfield__label" for="sample5">Put you message here...</label>
+
+    </div>
+    <div  class="mdl-cell mdl-cell--3-col">
+      <%= button_tag("Enviar", id: "send_button", type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") do %>
+          <%= I18n.t("send") %>
+
+          <i class="material-icons">send</i>
+      <% end %>
+    </div>
   </div>
 
-
-  <%= button_tag("Enviar", id: "send_button", type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") do  %>
-      <%= I18n.t("send") %>
-      <i class="material-icons">send</i>
-  <% end %>
 
 </div>
 
@@ -40,7 +52,7 @@
   </div>
   <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
     <% @dialects.each do |dialect, value| %>
-        <button type="button" class="mdl-button dialect-button" value="<%=value%>"><%= dialect %></button>
+        <button type="button" class="mdl-button dialect-button" value="<%= value %>"><%= dialect %></button>
     <% end %>
   </div>
 </dialog>
