@@ -83,4 +83,4 @@ production:
   database: translated_chat_production
   username: translated_chat
   password: <%= ENV['TRANSLATED_CHAT_DATABASE_PASSWORD'] %>
-  host: db
+
