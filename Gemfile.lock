@@ -58,6 +58,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dialog-polyfill-rails (0.4.5.1)
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  dialog-polyfill-rails
   dotenv-rails
   enumerate_it
   factory_girl_rails

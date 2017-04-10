@@ -1,16 +1,13 @@
 <aside class="mdl-cell mdl-cell--3-col">
-  Olá <%= current_user.name %>
-
   <div id="user_list" class="demo-list-action mdl-list docs-text-styling mdl-shadow--4dp">
     <%= render @users %>
   </div>
-
 </aside>
 
 
 <div class="mdl-cell mdl-cell--9-col">
   <button id="menu-dialect" value="" class="mdl-button mdl-js-button ">
-    Current type: Yoda
+    Current type: Yoda <i class="material-icons">autorenew</i>
   </button>
   <ul class="mdl-menu mdl-js-menu" for="menu-dialect">
     <% @dialects.each do |dialect, value| %>
@@ -19,11 +16,31 @@
   </ul>
 
   <ul id="conversation" class="demo-list-item mdl-list" >
-
+    <%= render @messages %>
   </ul>
 
-  <%= text_area_tag(:message_content, nil, class: 'mdl-textfield__input') %>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= text_area_tag(:message_content, nil, class: 'mdl-textfield__input') %>
+    <label class="mdl-textfield__label" for="sample5">Put you message here...</label>
+  </div>
 
-  <%= button_tag("Enviar", id: "send_button", type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") %>
+
+  <%= button_tag("Enviar", id: "send_button", type: "button", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect") do  %>
+      <%= I18n.t("send") %>
+      <i class="material-icons">send</i>
+  <% end %>
 
 </div>
+
+<dialog class="mdl-dialog">
+  <div class="mdl-dialog__content">
+    <p>
+      Choose a dialect that you want to use in this conversation?
+    </p>
+  </div>
+  <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+    <% @dialects.each do |dialect, value| %>
+        <button type="button" class="mdl-button dialect-button" value="<%=value%>"><%= dialect %></button>
+    <% end %>
+  </div>
+</dialog>

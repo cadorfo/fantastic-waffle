@@ -13,14 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require dialog-polyfill
 //= require_tree .
 
 function sendMessage(){
     App.room.send_message({message: {content: $("#message_content").val(), message_type: $("#menu-dialect").attr("value")}});
     $("#message_content").val('');
+
 }
 
 $(document).ready(function () {
+
+
     $("#send_button").click(function () {
         sendMessage();
     });
@@ -36,5 +40,24 @@ $(document).ready(function () {
         var dialectText = $(this).text()
         $("#menu-dialect").attr("value",dialectValue);
         $("#menu-dialect").text("Current dialect: " +dialectText);
-    })
+        $("#menu-dialect").append( " <i class='material-icons'>autorenew</i>");
+    });
+
+    var dialog = $("dialog")[0];
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+
+    $(".dialect-button").click(function (e) {
+        var dialectValue = $(this).attr("value");
+        var dialectText = $(this).text()
+        $("#menu-dialect").attr("value",dialectValue);
+        $("#menu-dialect").text("Current dialect: " +dialectText );
+        $("#menu-dialect").append( " <i class='material-icons'>autorenew</i>");
+        $("#conversation").scrollTop($(document).height());
+        dialog.close();
+    });
+
+    dialog.showModal();
+
 });

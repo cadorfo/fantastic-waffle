@@ -9,7 +9,7 @@ App.room = App.cable.subscriptions.create { channel: "ChatChannel", room: "ChatR
 
 appendConversation = (data) ->
   $("#conversation").append(data.content)
-  $("#conversation").scrollTop($("#conversation").height());
+  $("#conversation").scrollTop($(document).height());
 
 
 
