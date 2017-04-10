@@ -3,7 +3,7 @@ App.room = App.cable.subscriptions.create { channel: "ChatChannel", room: "ChatR
     if data.update_type == "message"
       appendConversation(data)
     else
-      removeUser(data)
+      removeOrAddUser(data)
   send_message: (data)->
     @perform 'send_message', data
 
@@ -13,7 +13,7 @@ appendConversation = (data) ->
 
 
 
-removeUser = (data) ->
+removeOrAddUser = (data) ->
   if data.update_type == "user_out"
     $("#user_list > .mdl-list__item[value='#{data.user.id}']").remove()
   else
